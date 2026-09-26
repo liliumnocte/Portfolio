@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nirmiti.exe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..500&family=Work+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Terminal Overlay — click "More about me" to open -->
+    <div class="terminal-overlay" id="terminalOverlay">
+      <div class="terminal-window">
+        <div class="terminal-header">
+          <span class="terminal-dot red"></span>
+          <span class="terminal-dot yellow"></span>
+          <span class="terminal-dot green"></span>
+        </div>
+        <div class="terminal-body">
+          <div>
+            <span class="prompt">$</span> <span class="cmd">whoami</span>
+          </div>
+          <div>→ Nirmiti — writer and developer, in no particular order</div>
+
+          <div>
+            <span class="prompt">$</span> <span class="cmd">cat about.txt</span>
+          </div>
+          <div>→ I write novels under the name Ryukogetsu_, and I build</div>
+          <div>→ things like this site the rest of the time.</div>
+          <div>→ Currently teaching myself full-stack development.</div>
+
+          <div>
+            <span class="prompt">$</span>
+            <span class="cmd">cat hobbies.txt</span>
+          </div>
+          <div>→ drawing, reading (mostly thrillers), inline skating,</div>
+          <div>→ cooking, and an unreasonable amount of Minecraft.</div>
+
+          <div>
+            <span class="prompt">$</span> <span class="cmd">echo hello</span>
+          </div>
+          <div>→ hi. glad you clicked this.</div>
+        </div>
+        <button class="terminal-close" id="terminalClose">close</button>
+      </div>
+    </div>
+
+    <!-- Project Details Modal -->
+    <div class="project-modal-overlay" id="projectModalOverlay">
+      <div class="project-modal">
+        <button class="modal-close" id="modalClose" aria-label="Close">
+          <i class="fas fa-times"></i>
+        </button>
+        <div class="modal-content" id="modalContent"></div>
+      </div>
+    </div>
+
+    <!-- Image Lightbox -->
+    <div class="lightbox-overlay" id="lightboxOverlay">
+      <button
+        class="modal-close lightbox-close"
+        id="lightboxClose"
+        aria-label="Close"
+      >
+        <i class="fas fa-times"></i>
+      </button>
+      <figure class="lightbox-figure">
+        <img id="lightboxImg" src="" alt="" />
+        <figcaption id="lightboxCaption"></figcaption>
+      </figure>
+    </div>
+
+    <div class="app">
+      <nav class="navbar">
+        <span class="logo">Nirmiti.exe</span>
+        <div class="nav-links">
+          <a href="#home">Home</a>
+          <a href="#projects">Projects</a>
+          <a href="#gallery">Life</a>
+          <a href="#contact">Contact</a>
+          <button class="theme-toggle" id="themeToggle">
+            <i class="fas fa-moon"></i> <span id="themeLabel">Dark</span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- HERO -->
+      <section class="hero" id="home">
+        <div class="hero-photo">
+          <img src="https://i.ibb.co/F43n8J8z/Girl.jpg" alt="Nirmiti" />
+        </div>
+        <div class="hero-text">
+          <p class="hero-kicker">Writer. Developer. Designer.</p>
+          <h1>Nirmiti</h1>
+          <p class="hero-tagline">
+            Some pages have code. Some have chapters. I write both.
+          </p>
+          <p class="hero-desc">
+            I build things — websites, small apps, and the occasional
+            overwrought romance novel under the pen name Ryukogetsu_. This site
+            is where all of it lives in one place.
+          </p>
+          <div class="hero-actions">
+            <button class="btn-primary" id="exploreBtn">
+              See what I've made
+            </button>
+            <button class="btn-ghost" id="terminalBtn">More about me</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS -->
+      <section class="skills-section">
+        <h2>What I build with</h2>
+        <div class="skill-pills">
+          <span class="pill">Python</span>
+          <span class="pill">Java</span>
+          <span class="pill">C++</span>
+          <span class="pill">HTML / CSS / JS</span>
+          <span class="pill">Canva</span>
+          <span class="pill">Figma</span>
+        </div>
+      </section>
+
+      <!-- PROJECTS -->
+      <section id="projects">
+        <h2>Projects</h2>
+        <input
+          type="text"
+          id="projectSearch"
+          class="project-search"
+          placeholder="Search projects…"
+        />
+
+        <div class="project-list" id="projectGrid">
+          <article class="project-row" data-title="Cafe Management System">
+            <span class="project-icon" style="background: #c9a24b22">☕</span>
+            <div class="project-row-main">
+              <h3>Cafe Management</h3>
+              <p>
+                Built with Python — handles orders, billing, and the menu from
+                the terminal.
+              </p>
+            </div>
+            <div class="project-row-meta">
+              <span class="status status-done">done</span>
+              <button class="project-btn" data-project="cafe">
+                View project
+              </button>
+            </div>
+          </article>
+
+          <article class="project-row" data-title="Recipe Webpage">
+            <span class="project-icon" style="background: #b5657a22">🍳</span>
+            <div class="project-row-main">
+              <h3>Recipe Webpage</h3>
+              <p>A cozy recipe site, still being built.</p>
+            </div>
+            <div class="project-row-meta">
+              <span class="status status-building">in progress</span>
+              <button class="project-btn" data-project="recipe">
+                View project
+              </button>
+            </div>
+          </article>
+
+          <article class="project-row" data-title="Design Portfolio">
+            <span class="project-icon" style="background: #8f7fb022">🎨</span>
+            <div class="project-row-main">
+              <h3>Design Portfolio</h3>
+              <p>Book covers, character moodboards, and social graphics.</p>
+            </div>
+            <div class="project-row-meta">
+              <span class="status status-live">live</span>
+              <button class="project-btn" data-project="design">
+                View project
+              </button>
+            </div>
+          </article>
+
+          <article class="project-row" data-title="Coming Soon Project">
+            <span class="project-icon" style="background: #6b647822">🚀</span>
+            <div class="project-row-main">
+              <h3>Something new</h3>
+              <p>A new project is currently in the works.</p>
+            </div>
+            <div class="project-row-meta">
+              <span class="status status-soon">soon</span>
+              <button class="project-btn" data-project="soon" disabled>
+                coming soon
+              </button>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- GALLERY / LIFE -->
+      <section id="gallery">
+        <h2>Beyond the screen</h2>
+        <p class="hobby-line">
+          When I'm not building something, I'm probably drawing, lost in a
+          thriller novel, lacing up to skate, messing around in Minecraft, or
+          cooking something that took three tries to get right.
+        </p>
+      </section>
+
+      <!-- FIELD NOTES -->
+      <section class="field-notes">
+        <h2>Right now</h2>
+        <ul>
+          <li>Building my first real full-stack app</li>
+          <li>Reading <em>Ikigai</em> — about halfway through</li>
+          <li>Finally learning Git properly</li>
+          <li>25 days into a coding streak</li>
+        </ul>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <h2>Get in touch</h2>
+        <p class="contact-intro">
+          Collaboration idea, feedback, or just a hello — my inbox is open.
+        </p>
+        <ul class="contact-list">
+          <li>
+            <i class="fab fa-instagram"></i>
+            <a
+              href="https://www.instagram.com/liliumnocte_/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Instagram</a
+            >
+            <span>— art posts and everyday chaos</span>
+          </li>
+          <li>
+            <i class="fab fa-github"></i>
+            <a
+              href="https://github.com/Azhi-Haven"
+              target="_blank"
+              rel="noopener noreferrer"
+              >GitHub</a
+            >
+            <span>— all my code lives here</span>
+          </li>
+          <li>
+            <i class="fab fa-linkedin"></i>
+            <a
+              href="https://www.linkedin.com/in/nirmiti-soni-275a803b4/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >LinkedIn</a
+            >
+            <span>— let's connect professionally</span>
+          </li>
+          <li>
+            <i class="fas fa-briefcase"></i>
+            <a
+              href="https://www.naukri.com/mnjuser/profile"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Naukri</a
+            >
+            <span>— my resume and job profile</span>
+          </li>
+          <li>
+            <i class="fas fa-envelope"></i>
+            <a href="mailto:nirmitisoni7@gmail.com">Email</a>
+            <span>— for anything more formal</span>
+          </li>
+          <li>
+            <i class="fab fa-pinterest"></i>
+            <a
+              href="https://in.pinterest.com/nirmiti_azhi/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Pinterest</a
+            >
+            <span>— mood boards and inspiration</span>
+          </li>
+        </ul>
+      </section>
+
+      <footer class="site-footer">© 2026 Nirmiti</footer>
+    </div>
+
+    <button class="back-top" id="backTopBtn">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
